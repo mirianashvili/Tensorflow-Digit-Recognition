@@ -1,0 +1,73 @@
+*{
+    padding:0px;
+    margin:0 auto;
+    font-family: "BPG Nateli", sans-serif;
+}
+body{
+    background-color: #fff;
+}
+
+.card{
+    margin:50px auto;
+    border-radius:10px;
+    width:800px;
+    height: 420px;
+    background: #ebebeb!important;
+}
+
+.card>.title{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #1A237E;
+}
+
+.card>.title h3{
+    padding:10px;
+    color:#fff; 
+}
+
+.card > .main{
+    width:100%;
+    background: #ebebeb;
+}
+
+.card > .main > .main-left{
+    width:250px;
+    float:left;
+}
+
+.card > .main > .main-left > canvas{
+    margin:10px;
+    width:200px;
+    height:200px;
+    display: block;
+}
+
+.card button{
+    display: block;
+    padding:10px;
+    border:none;
+    color:#fff;
+    background: #1A237E;
+    border-radius:5px;
+    width:200px;
+    margin-left:10px;
+    margin-top:10px;
+}
+
+.selector{
+    width:200px;
+    padding:10px;
+    display:inline-block;
+    margin-left:10px;
+    border:none;
+}
+
+.card  button:hover{
+    cursor: pointer;
+}
+
+.card > .main > .main-right{
+    width:550px;
+    float:left;
+} 
