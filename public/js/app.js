@@ -1,9 +1,10 @@
 const predictButton = document.getElementById("predictButton")
+const modelSelector = document.getElementById("selectorButton")
+var modelName = "cnn";
 
 var drawBoard;
 
 var chart;
-
 var first = false;
 
 var clickX = new Array();
@@ -19,16 +20,19 @@ function Init(){
 }
 
 predictButton.addEventListener('click',() => {
-    prediction()
+	modelName = modelSelector.options[modelSelector.selectedIndex].value;
+	prediction()
 })
 
 async function prediction(){
-    let model = await tf.loadModel("/output/cnn/model.json");
+    let model = await tf.loadModel("/output/"+modelName+"/model.json");
 	
-	let tensor = predictProcess(canvas,"cnn")
+	let tensor = predictProcess(canvas,modelName)
     let predictions = await model.predict(tensor).data();
 
 	let results = Array.from(predictions)
+
+	console.log(results)
 	
 	if(!first){
 		first = true;

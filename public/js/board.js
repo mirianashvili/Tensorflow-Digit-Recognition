@@ -5,7 +5,7 @@ const canvasOptions = {
     width:200,
     Height:200,
     LineJoin:"round",
-    LineWidth:3,
+    LineWidth:10,
 	StrokeStyle:"white",
 	backgroundColor:"#000"
 }
