@@ -1,9 +1,14 @@
 var drawBoard;
 const canvasBoard = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
+
+var clickX = new Array();
+var clickY = new Array();
+var clickD = new Array();
+
 const canvasOptions = {
-    width:200,
-    Height:200,
+    width:150,
+    Height:150,
     LineJoin:"round",
     LineWidth:10,
 	StrokeStyle:"white",
@@ -13,7 +18,6 @@ const canvasOptions = {
 $("#canvas").mousedown((e) => {
     const mouseX = e.pageX - this.offsetLeft
     const mouseY = e.pageY - this.offsetTop
-   // drawing = true;
     drawBoard = true;
 	addUserGesture(mouseX, mouseY);
 	drawOnCanvas();
@@ -108,3 +112,10 @@ function addUserGesture(x, y, dragging) {
 	clickY.push(y);
 	clickD.push(dragging);
 }
+
+clearButton.addEventListener('click',() => {
+	ctx.clearRect(0, 0, canvasOptions.width, canvasOptions.Height);
+	clickX = new Array();
+	clickY = new Array();
+	clickD = new Array();
+})

@@ -1,28 +1,29 @@
 const predictButton = document.getElementById("predictButton")
 const modelSelector = document.getElementById("selectorButton")
-var modelName = "cnn";
+const clearButton = document.getElementById("clearButton")
+
+var modelName = "cnn"
 
 var drawBoard;
 
 var chart;
 var first = false;
 
-var clickX = new Array();
-var clickY = new Array();
-var clickD = new Array();
 
 function Init(){
     canvasBoard.setAttribute("width",canvasOptions.width)
 	canvasBoard.setAttribute("height",canvasOptions.height)
 	canvasBoard.style.backgroundColor = canvasOptions.backgroundColor
-	canvasBoard.style.width = canvasBoard.Width
-	canvasBoard.style.height = canvasBoard.Height
+	canvasBoard.style.width = canvasOptions.Width
+	canvasBoard.style.height = canvasOptions.Height
 }
 
 predictButton.addEventListener('click',() => {
 	modelName = modelSelector.options[modelSelector.selectedIndex].value;
 	prediction()
 })
+
+
 
 async function prediction(){
     let model = await tf.loadModel("/output/"+modelName+"/model.json");
@@ -44,6 +45,9 @@ async function prediction(){
 	}	
 }
 
+/*
+	დიაგრამის ხატვის ფუნქცია
+*/
 function drawChart(array){
 	const ctx1 = document.getElementById("myChart").getContext('2d');
 
@@ -83,6 +87,9 @@ function drawChart(array){
 	});
 }
 
+/*
+	ბიბლიოთეკის გამოყენება
+*/
 
 function predictProcess(image,modelname){
 	let tensor;
